@@ -45,5 +45,29 @@ html,body{
 
 /***************** 반응형 *****************/
 @media screen and (max-width: 1199px) {  /* all은 인쇄할 때도 반응형으로 인쇄됨 */
-
+	.wrapper{
+		padding: 0 1em;
+	}
+	.top-wrapper .top-wrap{
+		justify-content: center;
+	}
+	.top-wrapper .top-wrap .icon-earth{
+		display: none;
+	}
+	.top-wrapper .top-wrap .icon-down{
+		display: none;
+	}
+	.top-wrapper .top-wrap .tel{
+		display: none;
+	}
+	.top-wrapper .top-wrap .event{
+		margin-left: unset; /* initial/0 */
+	}
+}
+@media screen and (max-width: 991px){}
+@media screen and (max-width: 767px){}
+@media screen and (max-width: 575px){
+	.top-wrapper .top-wrap{
+		flex-direction: column;
+	}
 }
