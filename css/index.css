@@ -46,7 +46,7 @@ html,body{
 
 .trans-wrapper{
 	position: absolute;
-	top: 24px;
+	top: 1.75em;
 	color: #111;
 	display: flex;
 	background-color: #fff;
