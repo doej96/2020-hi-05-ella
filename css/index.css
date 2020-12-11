@@ -13,10 +13,16 @@ html,body{
 	max-width: 1200px;
 	margin: auto;
 }
+.wrapper-mid{
+	max-width: 1300px;
+	margin: auto;
+}
 a:link, a:visited, a:active, a:hover{color: inherit; text-decoration: none;}
 .w-100{width: 100%;} /* 부모의 100% */
 .mw-100{max-width: 100%;} /* 최대값이 자기크기의 100% */
 .rel{position: relative;}
+.bold {font-weight: bold;}
+.bold:hover {color: #ba7a2d;}
 
 .hover-line::after{
 	display: block;
@@ -76,7 +82,7 @@ a:link, a:visited, a:active, a:hover{color: inherit; text-decoration: none;}
 /***************** trans-wrapper *****************/
 .trans-wrapper{
 	position: absolute;
-	top: 1.75em;
+	top: 2.5em;
 	color: #111;
 	display: flex;
 	background-color: #fff;
@@ -200,7 +206,7 @@ a:link, a:visited, a:active, a:hover{color: inherit; text-decoration: none;}
 
 /***************** .navi-wrapper *****************/
 .navi-wrapper {
-	border: 1px solid #eee;
+	border-top: 1px solid #eaeaea;
 }
 .navi-wrapper > .wrapper{
 	display: flex;
@@ -216,17 +222,17 @@ a:link, a:visited, a:active, a:hover{color: inherit; text-decoration: none;}
 }
 .navi-wrapper .a-search {
 	margin-left: auto;
-	margin-right: 0.25em;
+	margin-right: 0.5em;
 }
 .navi-wrapper a .fa {
 	font-size: 1.5em;
 }
 .navi-wrapper .navi a .fa{
-	font-size: 1em;
-	margin-right: 0.3em;
+	font-size: 0.75em;
+	margin-right: 0.5em;
 }
 .navi-wrapper .line {
-	border-left: 1px solid #eee;
+	border-left: 1px solid #eaeaea;
 	height: 1.5em;
 }
 .navi-wrapper a.bt-search, span.line, a.bt-wishlist {
@@ -238,22 +244,44 @@ a:link, a:visited, a:active, a:hover{color: inherit; text-decoration: none;}
 	width: 100%; /* navi-wrapper의 100% */
 	left: 0;
 	top: 4.5em; /* navi와 살짝 겹쳐야 함 */
-	border-top: 1px solid #eee;
+	border-top: 1px solid #eaeaea;
 	background: #fff;
+	font-weight: normal;
+	letter-spacing: -0.05em;
 }
 	.sub-navi-wrapper{
 	padding: 2.5em 0 1.5em 0;
 	display: flex;
+	align-items: flex-start;
 	}
 	 .sub-navi-wrap{
 		 flex: 0 0 18%;
 		 margin-right: 2%;
+		 display: flex;
+		 flex-direction: column;
+		 /* align-items : strech 가 default값이기 때문에 hover-line 끝까지 감 */
+		 align-items: flex-start;
 	 }
+	 	.sub-navi{padding: 0.5em 0;}
 	 .sub-banner{
 		flex: 0 0 38%;
 		margin-left: auto;
+		margin-top: 0.5em;
+		overflow: hidden;
 	 }
-	 
+	 .sub-banner img {transition: all .75s; opacity: 0.8;}
+	 .sub-banner:hover > img {transform: scale(1.2); opacity: 1;}
+	 .slide-wrapper .wrapper-mid {border: 1px solid blue;}
+	 .slide-wrapper .wrapper {border: 1px solid red; height: 100px;}
+	 .slide-wrapper .bt-arrow {
+		 font-size: 3em;
+		 color: #293356;
+		 position: absolute;
+		 top: 50%;
+		 transform: translateY(-50%);
+		}
+	 .slide-wrapper .bt-prev {left: 0;}
+	 .slide-wrapper .bt-next {right: 0;}
 
 
 
