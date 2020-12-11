@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="ko">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,10 +8,23 @@
     <script src="../js/jquery-3.5.1.min.js"></script>
     <title>AJAX 통신을 해보자</title>
 </head>
+
 <body>
     <button class="btn btn-primary" id="btGet">데이터 가져오기</button>
     <script>
-        488c40db3b8e389e1bcf4a0f9a83f8fa
+        var url = 'http://api.openweathermap.org/data/2.5/weather';
+        var data = {
+            id: 1835848,
+            appid: '488c40db3b8e389e1bcf4a0f9a83f8fa',
+            units: 'metric'
+        }
+        function onGet(result){
+            console.log(result);
+        }
+        $("#btGet").click(function(){
+            $.get(url, data, onGet); // =jQuery.get(보낼 주소, 보낼 데이터, 결과 오면 해당 함수(콜백함수) 실행);
+        })
     </script>
 </body>
+
 </html>
