@@ -17,7 +17,7 @@ html,body{
 
 /***************** header-wrapper *****************/
 
-.header-wrapper{}
+
 .top-wrapper{
 	background: #293356;
 	color: #f9f9f9;
@@ -34,6 +34,7 @@ html,body{
 }
 .top-wrapper .top-wrap .icon-down{
 	margin-right: 1.5em;
+	cursor: pointer;
 }
 .top-wrapper .top-wrap .event{
 	margin-left: auto;  /* !!! */
@@ -52,6 +53,7 @@ html,body{
 	background-color: #fff;
 	padding: 0.5em 0;
 	box-shadow: 0 0.25em .5em rgba(0,0,0,0.3);
+	user-select: none;
 }
 .trans-wrapper > div:not(.line){
 	display: flex;
@@ -66,7 +68,7 @@ html,body{
 	width: 0;
 	border-left: 1px solid #ccc;
 }
-.trans-wrapper .flag{
+.trans-wrapper .flag, .flag-now{
 	width: 1.125em;
 	height: 1.125em;
 	background-position: center;
@@ -80,6 +82,10 @@ html,body{
 .trans-wrapper .bt-down:hover{
 	color: #999;
 }
+.trans-wrapper .lang-sel{
+	
+}
+
 .trans-wrapper > div:not(.line) > ul{
 	width: 100%;
 	position: absolute;
@@ -95,6 +101,7 @@ html,body{
 	display: flex;
 	justify-content: center;
 	align-items: center;
+	cursor: pointer;
 }
 .trans-wrapper > div:not(.line) > ul > li.title{
 	font-size: 0.875em;
