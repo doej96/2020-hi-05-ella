@@ -18,13 +18,13 @@ function onLucky(){
 	$(".result-wrap").empty();
 
 	var lotto = [];
-	for(var i=1; i<=6; i++){
-		var random = Math.ceil(Math.random()*45)-1;
+	for(var i=0; i<6; i++){
+		var random = Math.ceil(Math.random()*45);
 		lotto.push(random);
 	}
 	console.log(lotto);
 	for(var a=0, html=''; a<lotto.length; a++){
-		var colors = ['yellow','blue','red','gray','green'];
+		//var colors = ['yellow','blue','red','gray','green'];
 		if(lotto[a]<=10) {
 			$(".result-wrap").append('<div class="number yellow">'+lotto[a]+'</div>')
 		}else if(lotto[a]<=20){
