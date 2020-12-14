@@ -1,0 +1,52 @@
+<script>
+/**
+ * ! 함수는  호출한 곳으로 돌아간다.
+ * *호이스팅은 함수를 대상으로 한다.
+ * *함수선언문으로 선언된 함수만 호이스팅의 대상이 된다.
+ * ! 함수의 성질 -- 리턴값이 없으면 undefined를 보내준다.
+ * ! 변수의 성질 -- 값이 지정되지 않으면 undefined를 보내준다.
+ * 
+ ** Callback은 자바스크립트(비동기 프로그래밍)의 핵심 로직이다.
+ */ 
+
+ // 함수선언문 - 호이스팅(hoisting/끌어올리다)의 대상이 된다.
+ //sum1(); // 함수실행
+//function sum1(){alert('alert');}
+//함수(함수선언)이기때문에 0번으로 끌어올려져있음. 함수실행을 먼저해도 상관X
+
+
+ // 함수표현식 - 호이스팅의 대상이 아니다.
+ //sum2(); //에러발생
+//var sum2 = function(){alert('alert2')}
+//함수가 아니기때문에(변수선언,함수표현식) 0번으로 가지 않음. 함수실행이 선언 전으로 가면 실행X
+
+
+// 함수의 성질 -- 리턴값이 없으면 undefined를 보내준다.
+// function sum3(a,b){console.log(a+b);}
+// console.log(sum3(10,20));
+//위로 올라가서 sum(10,20)을 구하고 내려와서 찍음. 그러나 return없기 때문에 undefined
+//sum만 찍으면 함수 그 자체 나옴.
+
+// var a;
+// console.log(a); //undefined
+
+/* 
+function sum(a,b,fn) {
+	setTimeout(function(){
+		fn(a+b);
+	},1000);
+}
+sum(10,20,function(result){
+	var c = result * result;
+	console.log('10과 20을 더해서 제곱한 값은 '+c+'입니다.')
+});
+console.log("무엇이 빨리 실행될까요?")
+ */
+
+function sum(a,b,cb) {
+	cb(a+b);
+}
+sum(10,20,function(result){
+	console.log(result);
+})
+</script>
