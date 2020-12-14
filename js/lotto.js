@@ -8,20 +8,31 @@
  * 1. 1~45까지의 번호가 존재하는 numbers배열이 있다.
  * 2. numbers에서 6개의 번호를 추출하여 lotto배열에 넣는다.
  * 3. 6개의 번호가 추출되면 .result-wrap에 공을 만들어 넣는다.
+ * 
+ * [도은정] 로또 숙제
+ * booldook@gmail.com
  */
 
 var numbers = [];
 for(var i=1; i<=45; i++) numbers.push(i);
 
-var lotto = [];
+
 function onLucky(){
-	$(".result-wrap").empty();
+	var lotto = [];
+	
 	for(var i=0; i<6; i++){
 		var random = Math.ceil(Math.random()*45)-1;
 		lotto.push(random);
 	}
 	console.log(lotto);
-	lotto.splice(0,6);
 
+	$(".result-wrap").empty();
+	
+	for(var a=0, html=''; a<lotto.length; i++){
+	$(".result-wrap").append('<div class="number yellow">'+lotto[a]+'</div>');
+	}
+	
+	lotto.splice(0,6);
 }
+
 $("#btLucky").click(onLucky);
