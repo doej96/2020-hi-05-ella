@@ -20,7 +20,14 @@ function onLucky(){
 	var lotto = [];
 	for(var i=0; i<6; i++){
 		var random = Math.ceil(Math.random()*45);
-		lotto.push(random);
+			if(lotto.indexOf(random) == -1){
+				lotto.push(random);
+			}else{
+				i--;
+			}
+		if(lotto.length == 6){
+			break;
+		}
 	}
 	console.log(lotto);
 	for(var a=0, html=''; a<lotto.length; a++){
@@ -43,5 +50,4 @@ $("#btLucky").click(onLucky);
 
 
 /* var numbers = [];
-for(var i=1; i<=45; i++) numbers.push(i);
- */
+for(var i=1; i<=45; i++) numbers.push(i); */
