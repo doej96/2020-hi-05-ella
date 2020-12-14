@@ -13,26 +13,35 @@
  * booldook@gmail.com
  */
 
-var numbers = [];
-for(var i=1; i<=45; i++) numbers.push(i);
-
 
 function onLucky(){
+	$(".result-wrap").empty();
+
 	var lotto = [];
-	
-	for(var i=0; i<6; i++){
+	for(var i=1; i<=6; i++){
 		var random = Math.ceil(Math.random()*45)-1;
 		lotto.push(random);
 	}
 	console.log(lotto);
-
-	$(".result-wrap").empty();
-	
-	for(var a=0, html=''; a<lotto.length; i++){
-	$(".result-wrap").append('<div class="number yellow">'+lotto[a]+'</div>');
+	for(var a=0, html=''; a<lotto.length; a++){
+		var colors = ['yellow','blue','red','gray','green'];
+		if(lotto[a]<=10) {
+			$(".result-wrap").append('<div class="number yellow">'+lotto[a]+'</div>')
+		}else if(lotto[a]<=20){
+			$(".result-wrap").append('<div class="number blue">'+lotto[a]+'</div>')
+		}else if(lotto[a]<=30){
+			$(".result-wrap").append('<div class="number red">'+lotto[a]+'</div>')
+		}else if(lotto[a]<=40){
+			$(".result-wrap").append('<div class="number gray">'+lotto[a]+'</div>')
+		}else if(lotto[a]<=45){
+			$(".result-wrap").append('<div class="number green">'+lotto[a]+'</div>')
+		}
 	}
-	
-	lotto.splice(0,6);
 }
 
 $("#btLucky").click(onLucky);
+
+
+/* var numbers = [];
+for(var i=1; i<=45; i++) numbers.push(i);
+ */
