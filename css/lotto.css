@@ -22,7 +22,7 @@
 	display: flex;
 	justify-content: center;
 }
-.wrapper .result-wrapper .number {
+.number {
 	width: 2em;
 	height: 2em;
 	font-size: 1.5em;
@@ -33,11 +33,11 @@
 	line-height: 1.875em;
 	text-shadow: 0 0 0.5em rgba(0,0,0,0.5);
 }
-.number.yellow{background-color: #ffbe0c;}
-.number.blue{background-color: #30d6ff;}
-.number.green{background-color: #43bd1e;}
-.number.red{background-color: #ff2e2e;}
-.number.gray{background-color: #a8a8a8;}
+.number.yellow {background-color: #ffbe0c;}
+.number.blue {background-color: #30d6ff;}
+.number.green {background-color: #43bd1e;}
+.number.red {background-color: #ff2e2e;}
+.number.gray {background-color: #a8a8a8;}
 
 .history-wrapper {
 	padding: 1em 0;
