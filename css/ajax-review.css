@@ -23,6 +23,9 @@ h1.title{
     background-color: #eaeaea;
     padding: 3%;
 }
+.show-wrapper > .info-wrap > .title{
+    font-size: 1.25em;
+}
 .show-wrapper > .info-wrap > .summary{
     text-align: left;
     padding: 1em;
@@ -44,4 +47,5 @@ h1.title{
 .thumb-wrapper > .thumb > img{
     height: 100%;
     width: auto;
+    cursor: pointer;
 }
