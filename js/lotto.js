@@ -11,6 +11,16 @@
  * 
  * [도은정] 로또 숙제
  * booldook@gmail.com
+ * 
+ * =====================================================================
+ * 
+ ** Array Method
+ * push() // 맨 뒤에 요소 추가
+ * pop() // 맨 뒤에서 요소 추출
+ * shift() // 맨 앞에 요소 추가
+ * unshift() // 맨 앞에서 요소 추출
+ * sort() // 문자열 오름차순으로 정렬 (콜백함수로 오름차순, 내림차순할 수 있음)
+ * 
  */
 
 function colorSel(n) {
@@ -35,13 +45,20 @@ function onLucky(){
 	legacyLotto = lotto; //legacyLotto에 lotto 넣음
 	lotto = []; //초기화
 
-	var colors = []; //생성될 공의 클래스 담을 변수
+	// B알고리즘
+	var defaultLotto = [];
+	for(var i=0; i<=45; i++) defaultLotto.push(i);
+	defaultLotto = _.shuffle(defaultLotto);
+	console.log(defaultLotto);
+	for(var i=0; i<6; i++) lotto.push(defaultLotto.pop());
 
+	var colors = []; //생성될 공의 클래스 담을 변수
+/* A알고리즘
 	while(lotto.length < 6) { //length 6보다 작으면 계속 돎
 		var random = Math.floor(Math.random()*45)+1; //버리고 +1! ceil은 0도 나옴
 		if(lotto.indexOf(random)==-1) lotto.push(random);
 	}//while end
-
+ */
 	lotto.sort(function(a,b){
 		return a - b; // 오름차순(뺀 값이 0보다 큰지 작은지)
 		//return b - a; // 내림차순
