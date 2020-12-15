@@ -20,11 +20,23 @@ function colorSel(n) {
 	else if(n <= 40) return 'gray';
 	else if(n <= 45) return 'green';
 }
-function onLucky(){
-	$(".result-wrap").empty();
+var lotto = []; //로또 번호를 담을 배열, 지역변수면 그 안에서 초기화됨
+var legacyLotto = []; //기존 로또 번호를 담을 배열
 
-	var lotto = []; //빈 배열
+function genLottoHtml(arr) { //배열 받아서 배열의 번호로 돈 html return함
+	var html='';
+	for(var i in arr){
+		html+='<div class="number '+colorSel(arr[i])+'">'+arr[i]+'</div>'
+	}
+	return html;
+}
+
+function onLucky(){
+	legacyLotto = lotto; //legacyLotto에 lotto 넣음
+	lotto = []; //초기화
+
 	var colors = []; //생성될 공의 클래스 담을 변수
+
 	while(lotto.length < 6) { //length 6보다 작으면 계속 돎
 		var random = Math.floor(Math.random()*45)+1; //버리고 +1! ceil은 0도 나옴
 		if(lotto.indexOf(random)==-1) lotto.push(random);
@@ -38,8 +50,16 @@ function onLucky(){
 
 	for(var i in lotto) { // (= var i=0; i<lotto.length; i++)
 		//colorSel(lotto[i]);
-		$(".result-wrap").append('<div class="number '+colorSel(lotto[i])+'">'+lotto[i]+'</div>')
+		$(".result-wrap").empty().append(genLottoHtml(lotto));
 	}
+
+	if(legacyLotto.length > 0) { //들어있는 배열이 있을 때
+		html = '<div class="history">';
+		html += genLottoHtml(legacyLotto);
+		html += '</div>';
+		$(".history-wrapper").prepend(html);
+	}
+	
 	/* 
 	for(var i=0; i<6; i++){
 			if(lotto.indexOf(random) == -1){  //같은 수가 있는 index번호가 나옴, 없으면 -1
