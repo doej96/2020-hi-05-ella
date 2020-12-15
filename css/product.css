@@ -34,6 +34,17 @@
 }
 .star-wrap{
     margin: 0.25em 0;
+    display: inline-block;
+    position: relative;
+    overflow: hidden;
+}
+.star-wrap > .mask {
+    width: 100%;
+    height: 100%;
+    background: #fff;
+    position: absolute;
+    top: 0;
+    left: 0;
 }
 .star-wrap .star{
     color: #999895;
