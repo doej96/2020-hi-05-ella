@@ -13,14 +13,36 @@
  * booldook@gmail.com
  */
 
-
+function colorSel(n) {
+	if(n <= 10) return 'yellow'; //return을 만나면 끝남
+	else if(n <= 20) return 'blue';
+	else if(n <= 30) return 'red';
+	else if(n <= 40) return 'gray';
+	else if(n <= 45) return 'green';
+}
 function onLucky(){
 	$(".result-wrap").empty();
 
-	var lotto = [];
+	var lotto = []; //빈 배열
+	var colors = []; //생성될 공의 클래스 담을 변수
+	while(lotto.length < 6) { //length 6보다 작으면 계속 돎
+		var random = Math.floor(Math.random()*45)+1; //버리고 +1! ceil은 0도 나옴
+		if(lotto.indexOf(random)==-1) lotto.push(random);
+	}//while end
+
+	lotto.sort(function(a,b){
+		return a - b; // 오름차순(뺀 값이 0보다 큰지 작은지)
+		//return b - a; // 내림차순
+	});
+	console.log(lotto);
+
+	for(var i in lotto) { // (= var i=0; i<lotto.length; i++)
+		//colorSel(lotto[i]);
+		$(".result-wrap").append('<div class="number '+colorSel(lotto[i])+'">'+lotto[i]+'</div>')
+	}
+	/* 
 	for(var i=0; i<6; i++){
-		var random = Math.ceil(Math.random()*45);
-			if(lotto.indexOf(random) == -1){
+			if(lotto.indexOf(random) == -1){  //같은 수가 있는 index번호가 나옴, 없으면 -1
 				lotto.push(random);
 			}else{
 				i--;
@@ -29,9 +51,8 @@ function onLucky(){
 			break;
 		}
 	}
-	console.log(lotto);
+	
 	for(var a=0, html=''; a<lotto.length; a++){
-		//var colors = ['yellow','blue','red','gray','green'];
 		if(lotto[a]<=10) {
 			$(".result-wrap").append('<div class="number yellow">'+lotto[a]+'</div>')
 		}else if(lotto[a]<=20){
@@ -44,6 +65,7 @@ function onLucky(){
 			$(".result-wrap").append('<div class="number green">'+lotto[a]+'</div>')
 		}
 	}
+	 */
 }
 
 $("#btLucky").click(onLucky);
