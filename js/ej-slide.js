@@ -9,13 +9,13 @@ var moveCnt = 1; //한 번에 움직여지는 슬라이드 개수
  ** 전역변수
  */
 var $container = $(container);
-var $stage = $(container).find('.slide-stage');
-var $wrapper = $(container).find('.slide-wrapper');
-var $slide = $(container).find('.slide');
+var $stage = $container.find('.slide-stage');
+var $wrapper = $container.find('.slide-wrapper');
+var $slide = $container.find('.slide');
 var slideCnt = $slide.length; //슬라이드 총 개수(length)
 var slideLast = slideCnt -1; //슬라이드의 마지막 인덱스(index)
-var slideWid; //슬라이드의 width값
-var stageView; //스테이지에 보여질 개수의 반응형에 따른 변하는 값
+var slideWid; //반응형일 때의 슬라이드 width값
+var stageView; //반응형일 때 스테이지에 보여질 슬라이드 개수
 var now = 0; //기준이 되는 슬라이드의 인덱스
 
 
