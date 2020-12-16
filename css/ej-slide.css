@@ -1,0 +1,21 @@
+.wrapper-sm{max-width: 1300px; margin: auto;}
+.wrapper{max-width: 1000px; margin: auto;}
+.w-100{width: 100%;}
+
+.ej-slide{}
+.ej-slide > .slide-stage {overflow: hidden; border: 1px solid red;}
+.ej-slide > .slide-stage > .slide-wrapper{width: 100%; position: relative; border: 1px solid blue; display: flex;}
+.ej-slide > .slide-stage > .slide-wrapper > .slide{flex-grow: 0; flex-shrink: 0; border: 10px solid green; position: relative; left: -100%;}
+/*  */
+
+
+.ej-slide > .bt-prev{}
+.ej-slide > .bt-next{}
+.ej-slide > .pager-wrapper{}
+
+
+
+@media screen and (max-width:1199px) {}
+@media screen and (max-width:991px) {}
+@media screen and (max-width:767px) {}
+@media screen and (max-width:575px) {}

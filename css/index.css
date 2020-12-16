@@ -8,6 +8,7 @@ html,body{
 	font-family: 'Noto Sans', sans-serif;
 	font-size: 14px;
 	line-height: 0.95;
+	height: 10000px;
 }
 .wrapper{
 	max-width: 1200px;
