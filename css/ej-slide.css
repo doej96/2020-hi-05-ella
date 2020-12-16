@@ -1,18 +1,20 @@
-.wrapper-sm{max-width: 1300px; margin: auto;}
+.wrapper-md{max-width: 1100px; margin: auto;}
 .wrapper{max-width: 1000px; margin: auto;}
 .w-100{width: 100%;}
 
-.ej-slide{}
+.ej-slide {position: relative;}
 .ej-slide > .slide-stage {overflow: hidden; border: 1px solid red;}
 .ej-slide > .slide-stage > .slide-wrapper{width: 100%; position: relative; border: 1px solid blue; display: flex;}
-.ej-slide > .slide-stage > .slide-wrapper > .slide{flex-grow: 0; flex-shrink: 0; border: 10px solid green; position: relative; left: -100%;}
+.ej-slide > .slide-stage > .slide-wrapper > .slide{flex-grow: 0; flex-shrink: 0; border: 1px solid green; position: relative; left: -100%;}
 /*  */
 
-
-.ej-slide > .bt-prev{}
-.ej-slide > .bt-next{}
-.ej-slide > .pager-wrapper{}
-
+.ej-slide > .bt-slide {color: rgba(0,0,0,0.3); font-size: 5em; position: absolute; top: 50%; transform: translateY(-50%); cursor: pointer; line-height: 0.95; transition: .5s; user-select: none; text-shadow: 0 0 0.1em rgba(255,255,255,0.5);}
+.ej-slide > .bt-slide:hover{color: rgba(0,0,0,0.8);}
+.ej-slide > .bt-prev {left: 0;}
+.ej-slide > .bt-next {right: 0;}
+.ej-slide > .pager-wrapper{width: 100%; position: absolute; display: flex; justify-content: center; padding: 0.5em 0;}
+.ej-slide > .pager-wrapper > .pager{color: red; opacity: .3; cursor: pointer; user-select: none;}
+.ej-slide > .pager-wrapper > .pager.active{opacity: .8;}
 
 
 @media screen and (max-width:1199px) {}

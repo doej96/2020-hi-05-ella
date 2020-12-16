@@ -2,8 +2,8 @@
  ** 프로그램 세팅값
  */
 var container = '.ej-slide';
-var stageDefault = 5; //스테이지에 보여질 개수 기준값
-
+var stageDefault = 5; //스테이지에 보여질 개수 기준값(PC기준)
+var moveCnt = 1; //한 번에 움직여지는 슬라이드 개수
 
 /**
  ** 전역변수
