@@ -10,8 +10,9 @@
 }
  */
 
-function EJSlide(obj){
-this.$container = $(obj.container) || '#mySlide';
+function EJSlide(container, obj){
+this.obj = obj || {};
+this.$container = $(container);
 this.$stage = this.$container.find('.slide-stage');
 this.$wrapper = this.$container.find('.slide-wrapper');
 this.$slide = this.$container.find('.slide');
@@ -22,9 +23,9 @@ for(var i=0; i<this.$slide.length; i++)
 	$('<div class="pager"></div>').appendTo(this.$pagerWrapper)
 	this.$pager = this.$container.find('.pager');
 	
-	this.speed = obj.speed || 300;
-	this.stageViewDefault = obj.stageViewDefault || 4;
-	this.moveCnt = obj.moveCnt || 1;
+	this.speed = this.obj.speed || 300;
+	this.stageViewDefault = this.obj.stageViewDefault || 4;
+	this.moveCnt = this.obj.moveCnt || 1;
 	
 this.slideCnt = this.$slide.length; //슬라이드 총 개수(length)
 this.slideLast = slideCnt -1; //슬라이드의 마지막 인덱스(index)
