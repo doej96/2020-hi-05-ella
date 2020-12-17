@@ -4,8 +4,8 @@
 
 .ej-slide {position: relative;}
 .ej-slide > .slide-stage {overflow: hidden; /* border: 1px solid red; */}
-.ej-slide > .slide-stage > .slide-wrapper{width: 100%; position: relative; border: 1px solid blue; display: flex;}
-.ej-slide > .slide-stage > .slide-wrapper > .slide{flex-grow: 0; flex-shrink: 0; /* border: 1px solid green; */ position: relative; left: -100%;/* 부모의 100%만큼 이동 */}
+.ej-slide > .slide-stage > .slide-wrapper{width: 100%; position: relative; display: flex; left: 0;}
+.ej-slide > .slide-stage > .slide-wrapper > .slide{flex-grow: 0; flex-shrink: 0; /* border: 1px solid green; */ position: relative; left: -100%; padding: 2%;/* 부모의 100%만큼 이동 */}
 
 .ej-slide > .bt-slide {color: rgba(0,0,0,0.3); font-size: 5em; position: absolute; top: 50%; transform: translateY(-50%); cursor: pointer; line-height: 0.95; transition: .5s; user-select: none; text-shadow: 0 0 0.1em rgba(255,255,255,0.5);}
 .ej-slide > .bt-slide:hover{color: rgba(0,0,0,0.8);}

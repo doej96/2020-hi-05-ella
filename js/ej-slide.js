@@ -1,7 +1,7 @@
 /**
  ** 프로그램 세팅값
  */
-var container = '.ej-slide';
+var container = '#mySlide';
 var stageViewDefault = 4; //스테이지에 보여질 개수 기준값(PC기준)
 var moveCnt = 1; //한 번에 움직여지는 슬라이드 개수
 var speed = 300;
@@ -16,8 +16,11 @@ var $slide = $container.find('.slide');
 var $btPrev = $container.find('.bt-prev');
 var $btNext = $container.find('.bt-next');
 var $pagerWrapper = $container.find('.pager-wrapper');
+for(var i=0; i<$slide.length; i++)
+	$('<div class="pager"></div>').appendTo($pagerWrapper)
 var slideCnt = $slide.length; //슬라이드 총 개수(length)
 var slideLast = slideCnt -1; //슬라이드의 마지막 인덱스(index)
+var $pager = $container.find('.pager');
 var slideWid; //반응형일 때의 슬라이드 width값
 var stageView; //반응형일 때 스테이지에 보여질 슬라이드 개수
 var now = 0; //기준이 되는 슬라이드의 인덱스
@@ -56,7 +59,7 @@ function slideAni() {
  ** 이벤트 콜백
  */
 function onResize() {
-	var wid = $(this).outerWidth(); //$(this)=$(window)
+	var wid = $(this).width(); //$(this)=$(window), 브라우저의 width값
 	stageView = stageViewDefault;
 	if(wid < 576) stageView = 1;
 	else if(wid < 768) stageView = stageViewDefault <2 ? stageViewDefault : 2;
@@ -100,8 +103,6 @@ function onPager() {
   */
  $btPrev.click(onPrev);
  $btNext.click(onNext);
- 
- for(var i=0; i<slideCnt; i++)
- $('<div class="pager"></div>').appendTo($pagerWrapper).click(onPager); 
+ $pager.click(onPager);
 
  $(window).resize(onResize).trigger("resize"); //pager만든 후에 init실행(resize)
