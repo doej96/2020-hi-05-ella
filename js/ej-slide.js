@@ -6,6 +6,11 @@ var stageViewDefault = 4; //스테이지에 보여질 개수 기준값(PC기준)
 var moveCnt = 1; //한 번에 움직여지는 슬라이드 개수
 var speed = 300;
 
+//이 슬라이드 또 쓰려면 전체를 Constructor 객체화
+function EJSlide() {
+	return this;
+}
+
 /**
  ** 전역변수
  */
