@@ -50,9 +50,12 @@
 		<div class="swiper-button-prev"></div>
 		<div class="swiper-pagination"></div>
 	</div>
+	<button id="btPlay" style="margin-top: 200px; margin-left: 200px;">움직여</button>
 	<script>
 		var swiper = new Swiper('.swiper-container', {
-      slidesPerView: 4,
+			slidesPerView: 4,
+			spaceBetween: 20,
+			loop: true,
       pagination: {
         el: '.swiper-pagination',
         clickable: true,
@@ -61,7 +64,15 @@
 				nextEl: '.swiper-button-next',
 				prevEl: '.swiper-button-prev',
 			},
-    });
+		});
+		
+		$('#btPlay').click(function(){
+			swiper.slideNext(1000,true);
+		});
+		
+		swiper.on('slideChange',function(){
+			console.log('slide changed');
+		});
 	</script>
 
 </body>
