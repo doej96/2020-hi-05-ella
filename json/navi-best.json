@@ -133,7 +133,37 @@
 			}
 				
 			
-		] 
+		],
+		"alphabet": [
+				{"name": "A", "class": "active"},
+				{"name": "B", "class": "active"},
+				{"name": "C", "class": "active"},
+				{"name": "D", "class": "active"},
+				{"name": "E", "class": ""},
+				{"name": "F", "class": ""},
+				{"name": "G", "class": "active"},
+				{"name": "H", "class": "active"},
+				{"name": "I", "class": "active"},
+				{"name": "J", "class": "active"},
+				{"name": "K", "class": "active"},
+				{"name": "L", "class": ""},
+				{"name": "M", "class": ""},
+				{"name": "N", "class": "active"},
+				{"name": "O", "class": ""},
+				{"name": "P", "class": "active"},
+				{"name": "Q", "class": "active"},
+				{"name": "R", "class": ""},
+				{"name": "S", "class": "active"},
+				{"name": "A", "class": "active"},
+				{"name": "T", "class": ""},
+				{"name": "U", "class": "active"},
+				{"name": "V", "class": "active"},
+				{"name": "W", "class": "active"},
+				{"name": "X", "class": ""},
+				{"name": "Y", "class": ""},
+				{"name": "Z", "class": "active"},
+				{"name": "1-9", "class": ""}
+		]
 	}
 
 

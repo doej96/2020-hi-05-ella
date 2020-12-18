@@ -244,7 +244,7 @@ a:link, a:visited, a:active, a:hover{color: inherit; text-decoration: none;}
 	position: absolute;
 	width: 100%; /* navi-wrapper의 100% */
 	left: 0;
-	top: 4.3em; /* navi와 살짝 겹쳐야 함 */
+	top: 4.3em;
 	background: #fff;
 	font-weight: normal;
 	letter-spacing: -0.05em;
@@ -293,7 +293,7 @@ a:link, a:visited, a:active, a:hover{color: inherit; text-decoration: none;}
 		 transform: translateY(-50%);
 		}
 
-		.slide-container{
+		.navi-bottom{
 			background-color: #eaeaea;
 			padding: 2em 0;
 		}
@@ -332,8 +332,40 @@ a:link, a:visited, a:active, a:hover{color: inherit; text-decoration: none;}
 		.slide-wrapper .slide > .content-wrap > .content > .origin {color: #555;}
 		.slide-wrapper .slide > .content-wrap > .price-sale {color: #ba7a2d; padding: 1em 0; font-weight: bold;}
 
-
-
+	.navi-wrapper .navi-best .navi-bottom {padding: 0;}	
+	.navi-wrapper .navi-best .navi-bottom >.wrapper {
+		display: flex;
+		align-items: center;
+	}
+	.navi-wrapper .navi-best .navi-bottom >.wrapper > * {
+		flex: 33.3333% 0 0;
+	}
+	.navi-wrapper .navi-best .navi-bottom .title {
+		font-weight: bold;
+	}
+	.navi-wrapper .navi-best .alphabet-wrapper {
+		display: flex;
+		flex-direction: column;
+		align-items: flex-start; /* 밑줄 글씨까지만 나오게 */
+		padding: 1em;
+	}
+	.navi-wrapper .navi-best .alphabet-wrap {
+		display: flex;
+		flex-wrap: wrap;
+		padding: 1em 0;
+	}
+	.navi-wrapper .navi-best ul.alphabet-wrap > li {width: 2.25em; height: 2em; display: flex; align-items: center;}
+	.navi-wrapper .navi-best .alphabet-wrap > li > a {
+		line-height: 1.5; /* 밑줄을 더 밑에 */
+		color: #999;
+	}
+	.navi-wrapper .navi-best ul.alphabet-wrap > li > a.active {
+		font-weight: bold;
+		color: #333;
+	}
+	.navi-wrapper .navi-best ul.alphabet-wrap > li:hover > a.active {
+		border-bottom: 1px solid #333;
+	}
 /***************** 반응형 *****************/
 /* 반응형에서도 똑같이 부르는 이유는 css점수를 똑같이하기 위함 */
 @media screen and (max-width: 1199px) {  /* all은 인쇄할 때도 반응형으로 인쇄됨 */

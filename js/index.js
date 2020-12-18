@@ -50,7 +50,7 @@ function onNaviLeave() {
 }
 
 function onNaviNew(r) {
-	$(".navi.navi-new").append(createNavi(r));
+	$(".navi.navi-new").prepend(createNavi(r));
 	var html = createSub(r);
 	html += '<div class="sub-banner">';
 	html += 	'<img src="../img/trend0.jpg" alt="" class="mw-100">';
@@ -59,8 +59,16 @@ function onNaviNew(r) {
 }
 
 function onNaviBest(r) {
-	$(".navi.navi-best").append(createNavi(r));
+	$(".navi.navi-best").prepend(createNavi(r));
 	$(".navi.navi-best").find(".sub-navi-wrapper").append(createSub(r));
+
+	for(var i=0; i<r.alphabet.length; i++) {
+		if(r.alphabet[i].class == '')
+		html = '<li><a>'+r.alphabet[i].name+'</a></li>';
+		else
+		html = '<li><a href="#" class="'+r.alphabet[i].class+'">'+r.alphabet[i].name+'</a></li>'
+		$(".navi.navi-best").find(".alphabet-wrap").append(html);
+	}
 }
 
 function onNewProducts(r) {
@@ -100,6 +108,7 @@ function onNewProducts(r) {
 			},
 	});
 }
+
 function onLangChg() {
 	$(".trans-wrapper").stop().slideToggle(200);
 	$(".trans-wrapper .lang-sel").stop().slideUp(200);
