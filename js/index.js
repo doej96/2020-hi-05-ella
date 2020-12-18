@@ -2,12 +2,36 @@
 
 
 /********* 사용자함수 **********/
+function createNavi(r) {
+	var html = '<a href="'+r.link+'" class="hover-line">';
+	if(r.icon) html += '<i class="'+r.icon+'"></i>';
+	html += r.name;
+	html += '</a>';
+	return html;
+}
 
+function createSub(r) { //r=데이터
+	var html = '<div class="sub-navi-wrap">'
+	for(var i=0; i<r.depth2.length; i++) { //배열은 length를 가짐
+		if (r.depth2[i].depth3 && i>0) {
+			html += '</div><div class="sub-navi-wrap">'  //앞에 있는 div닫고 새로 단독으로 div 엶
+		} //먼저 div생성하고 나서 그 뒤에 집어넣어야 
+		html += '<a href="'+r.depth2[i].link+'" class="sub-navi bold">'+r.depth2[i].name+'</a>';
+		if(r.depth2[i].depth3) {
+			for(var j=0; j<r.depth2[i].depth3.length; j++) {
+				html += '<a href="'+r.depth2[i].depth3[j].link+'" class="sub-navi hover-line">'+r.depth2[i].depth3[j].name+'</a>';
+			}
+		}
+	}
+	html += '</div>';
+	return html;
+}
 
 /********* 이벤트선언 **********/
 $('.top-wrapper .icon-down').click(onLangChg); // 언어선택
 $('.top-wrapper .bt-down').click(onLangSel); // 언어선택
 $.get('../json/navi-new.json', onNaviNew); // new releases 생성
+$.get('../json/navi-best.json', onNaviBest); // best sellers 생성
 $.get('../json/new-products.json', onNewProducts); // new releases 상품 가져오기
 
 $(".navi-wrapper .navi").mouseenter(onNaviEnter);
@@ -26,31 +50,17 @@ function onNaviLeave() {
 }
 
 function onNaviNew(r) {
-	var html, i, j;
-	html = '<a href="'+r.link+'" class="hover-line">';
-	if(r.icon) html += '<i class="'+r.icon+'"></i>';
-	html += r.name;
-	html += '</a>';
-	$(".navi.navi-new").append(html);
-
-	html = '<div class="sub-navi-wrap">'
-	for(i=0; i<r.depth2.length; i++) { //배열은 length를 가짐
-		if (r.depth2[i].depth3 && i>0) {
-			html += '</div><div class="sub-navi-wrap">'  //앞에 있는 div닫고 새로 단독으로 div 엶
-		} //먼저 div생성하고 나서 그 뒤에 집어넣어야 
-		html += '<a href="'+r.depth2[i].link+'" class="sub-navi bold">'+r.depth2[i].name+'</a>';
-		if(r.depth2[i].depth3) {
-			for(j=0; j<r.depth2[i].depth3.length; j++) {
-				html += '<a href="'+r.depth2[i].depth3[j].link+'" class="sub-navi hover-line">'+r.depth2[i].depth3[j].name+'</a>';
-			}
-		}
-	} 
-	html += '</div>';
+	$(".navi.navi-new").append(createNavi(r));
+	var html = createSub(r);
 	html += '<div class="sub-banner">';
 	html += 	'<img src="../img/trend0.jpg" alt="" class="mw-100">';
 	html += '</div>';
 	$(".navi.navi-new").find(".sub-navi-wrapper").append(html);
-	console.log(html);
+}
+
+function onNaviBest(r) {
+	$(".navi.navi-best").append(createNavi(r));
+	$(".navi.navi-best").find(".sub-navi-wrapper").append(createSub(r));
 }
 
 function onNewProducts(r) {
