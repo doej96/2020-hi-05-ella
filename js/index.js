@@ -72,6 +72,30 @@ function createSubNavi(el, r) { //el:DOM
 	$(el).find('.depth2').mouseleave(onDepth2Leave);
 }
 
+function naviShowHide() {
+	if(winWidth >= 1199) {
+		if(scTop >= topHeight + logoHeight){
+			$(".navi-wrapper").css({position: "fixed"});
+			$(".navi-wrapper > .wrapper").css("max-width", "100%");
+			$(".navi-wrapper .navi-logo").css("display", "block");
+			$(".navi-wrapper .bt-login").css("display", "block");
+		}else {
+			$(".navi-wrapper").css({position: "relative"});
+			$(".navi-wrapper > .wrapper").css("max-width","1200px");
+			$(".navi-wrapper .navi-logo").css("display", "none");
+			$(".navi-wrapper .bt-login").css("display", "none");
+		}
+		$(".logo-wrapper").css({position: "relative"});
+	}
+	else{
+		if(scTop >= topHeight)
+		$(".logo-wrapper").css({position: "fixed"});
+		 else 
+			$(".logo-wrapper").css({position: "relative"});
+			$(".navi-wrapper").css({position: "relative"});
+	}
+}
+
 /********* 이벤트선언 **********/
 $('.top-wrapper .icon-down').click(onLangChg); // 언어선택
 $('.top-wrapper .bt-down').click(onLangSel); // 언어선택
@@ -104,21 +128,7 @@ function onScroll(e) {
 	scTop = $(this).scrollTop();
 	// navi-wrapper fixed
 	//offset : 얼마나 떨어져있는지, 폭을 구해줌, 객체로 나옴({top:129, left:0}), 따라서 이 객체의 top을 구하면 됨
-	if(winWidth >= 1199) {
-		if(scTop >= topHeight + logoHeight){
-			$(".navi-wrapper").css({position: "fixed", width: "100%", top:"0"});
-		}else {
-			$(".navi-wrapper").css({position: "relative"});
-		}
-		$(".logo-wrapper").css({position: "relative"});
-	}
-	else{
-		if(scTop >= topHeight)
-		$(".logo-wrapper").css({position: "fixed"});
-		 else 
-			$(".logo-wrapper").css({position: "relative"});
-			$(".navi-wrapper").css({position: "relative"});
-	}
+	naviShowHide();
 	/* 
 	if(scTop >= naviTop) {
 		$(".navi-wrapper").css({position: "fixed", width: "100%", top:"0"});
