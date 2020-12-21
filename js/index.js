@@ -68,6 +68,23 @@ $(".navi-wrapper .navi").mouseenter(onNaviEnter);
 //mouseenter는 pc에서 hover, 모바일에서는 touch
 $(".navi-wrapper .navi").mouseleave(onNaviLeave);
 
+var mainBanner = new Swiper('.main-wrapper.swiper-container', {
+	slidesPerView: 1,
+	loop: 'true',
+	effect: 'fade',
+	autoplay: {
+		delay : 4000,
+		},
+	pagination: {
+		el: '.main-wrapper .pager-wrap',
+		clickable: 'true',
+	},
+		navigation: {
+		nextEl: '.main-wrapper .bt-next',
+		prevEl: '.main-wrapper .bt-prev',
+	},
+});
+
 
 /********* 이벤트콜백 **********/
 
@@ -193,3 +210,4 @@ function onLangSel() {
 	$(".trans-wrapper .lang-sel").stop().slideUp(200);
 	if($(this).next().css("display") === 'none') $(this).next().stop().slideDown(200);
 }
+
