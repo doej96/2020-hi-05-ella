@@ -1,7 +1,27 @@
 /********* 전역선언 **********/
-
+var scTop, topHeight, logoHeight, winWidth;
 
 /********* 사용자함수 **********/
+
+function mainBanner() {
+	var swiper = new Swiper('.main-wrapper.swiper-container', {
+		slidesPerView: 1,
+		loop: 'true',
+		effect: 'fade',
+		autoplay: {
+			delay : 4000,
+			},
+		pagination: {
+			el: '.main-wrapper .pager-wrap',
+			clickable: 'true',
+		},
+			navigation: {
+			nextEl: '.main-wrapper .bt-next',
+			prevEl: '.main-wrapper .bt-prev',
+		},
+	});
+}
+
 function createNavi(r) {
 	var html = '<a href="'+r.link+'" class="hover-line">';
 	if(r.icon) html += '<i class="'+r.icon+'"></i>';
@@ -68,25 +88,45 @@ $(".navi-wrapper .navi").mouseenter(onNaviEnter);
 //mouseenter는 pc에서 hover, 모바일에서는 touch
 $(".navi-wrapper .navi").mouseleave(onNaviLeave);
 
-var mainBanner = new Swiper('.main-wrapper.swiper-container', {
-	slidesPerView: 1,
-	loop: 'true',
-	effect: 'fade',
-	autoplay: {
-		delay : 4000,
-		},
-	pagination: {
-		el: '.main-wrapper .pager-wrap',
-		clickable: 'true',
-	},
-		navigation: {
-		nextEl: '.main-wrapper .bt-next',
-		prevEl: '.main-wrapper .bt-prev',
-	},
-});
-
+$(window).scroll(onScroll).resize(onResize).trigger("resize"); //휠은 휠로만 생김
+mainBanner();
 
 /********* 이벤트콜백 **********/
+function onResize(e) {
+	topHeight = $('.top-wrapper').outerHeight();
+	logoHeight = $('.logo-wrapper').outerHeight();
+	winWidth = $(window).width();
+	/* naviTop = $(".navi-wrapper").offset().top; */
+	//naviTop값 스크롤할 때마다 찾는 게 아니라 resize(브라우저 크기 바뀔때마다)찾음
+}
+
+function onScroll(e) {
+	scTop = $(this).scrollTop();
+	// navi-wrapper fixed
+	//offset : 얼마나 떨어져있는지, 폭을 구해줌, 객체로 나옴({top:129, left:0}), 따라서 이 객체의 top을 구하면 됨
+	if(winWidth >= 1199) {
+		if(scTop >= topHeight + logoHeight){
+			$(".navi-wrapper").css({position: "fixed", width: "100%", top:"0"});
+		}else {
+			$(".navi-wrapper").css({position: "relative"});
+		}
+		$(".logo-wrapper").css({position: "relative"});
+	}
+	else{
+		if(scTop >= topHeight)
+		$(".logo-wrapper").css({position: "fixed"});
+		 else 
+			$(".logo-wrapper").css({position: "relative"});
+			$(".navi-wrapper").css({position: "relative"});
+	}
+	/* 
+	if(scTop >= naviTop) {
+		$(".navi-wrapper").css({position: "fixed", width: "100%", top:"0"});
+	}else {
+		$(".navi-wrapper").css({position: "relative"});
+	}
+	console.log(scTop); */ //브라우저 맨 위 좌표값?? scTop0이면 맨 위
+}
 
 function onSub2Enter() {
 	$(this).find('.sub-wrapper2').stop().slideDown(300);
