@@ -32,6 +32,9 @@ a:link, a:visited, a:active, a:hover{color: inherit; text-decoration: none;}
 .bold {font-weight: bold; cursor: pointer;}
 .bold:hover {color: #ba7a2d;}
 .abs {position: absolute;}
+.tc {text-align: center;}
+.tl {text-align: left;}
+.tr {text-align: right;}
 
 .hover-line::after{
 	display: block;
@@ -52,6 +55,7 @@ a:link, a:visited, a:active, a:hover{color: inherit; text-decoration: none;}
 .bt-blue:hover {background-color: #fff; color: #293355; box-shadow: 0 0.25em 0.5em rgba(0,0,0,0.3);}
 .bt-white {width: 100%; text-align: center; background-color: #f9f9f9; font-weight: bold; color:#293355; padding: 1.125em 0; border: none; transition: all 0.3s; box-shadow: 0 0.25em 0.5em rgba(0,0,0,0.3); display: block;}
 .bt-white:hover {background-color: #293355; color:#fff; box-shadow: 0 0.25em 0.5em rgba(0,0,0,0.3);}
+.bt-border {border: 1px solid #111; box-shadow: none;}
 
 /***************** header-wrapper *****************/
 .header-wrapper {
@@ -455,22 +459,30 @@ a:link, a:visited, a:active, a:hover{color: inherit; text-decoration: none;}
 /* hover됐을 때만 border있으면 떠오르는 느낌 들기때문에 hover 전에도 안보이게 border줌 */
 .main-wrapper .slogan-wrapper .bt-link:hover {color: #293355; background-color: #fff; border-bottom: 1px solid #eaeaea;}
 
+
+/***************** .modal-container *****************/
+.modal-container {width: 100%; height: 100vh; position: fixed; top: 0; left: 0; background-color: rgba(0,0,0,0.5); z-index: 999; transition: all 0.3s; opacity: 0; display: none;}
+/* html,body{height: 100vh; overflow: hidden;} */ /* 모달창에서 스크롤안됨 but 밑에 있다가도 다시 올라옴 */
+.modal-wrapper {background-color: #fff; position: absolute; transition: all 0.3s;}/* transform: 옆으로 밀어놓음 */
+
+.modal-wrapper.type-rt {width: 400px; height: 100vh; padding: 0 2em; top: 0; right: 0; transform: translateX(100%);}
+.modal-wrapper.type-ct {top: 50%; left: 50%; transform: translate(-50%, -50%); width: 400px; padding: 3em 3em 1em 3em; border: 1px solid #111; display: none;}
+
+.modal-wrapper .close-wrap {padding: 1em 0; text-align: right;}
+.modal-wrapper .close-wrap .bt-close {background-color: transparent; border: none; outline-style: none;}
+
+.modal-wrapper .close-wrap2 {width: 2em; height: 2em; line-height: 2em; text-align: center; font-size: 1.5em; position: absolute; top: 0; right: 0; background-color: #293355; color: #f9f9f9; transition: all 0.3s; cursor: pointer;}
+.modal-wrapper .close-wrap2:hover{background-color: #fff; color: #293355;}
+
+.modal-container.active {opacity: 1;}
+.modal-wrapper.type-rt.active {transform: translateX(0);}
+.modal-wrapper.type-ct.active {display: block;}
+
 .modal-wrapper .title {font-family: 'DM Serif Display', serif; font-size: 2.5em; letter-spacing: 0.05em; margin-bottom: 1em;}
 .modal-wrapper label {display: block; margin: 1.5em 0 1em 0;}
 .modal-wrapper .bt-blue,
 .modal-wrapper .bt-white
  {margin: 2em 0;}
-
-
-/***************** .modal-container *****************/
-.modal-container {width: 100%; height: 100vh; position: fixed; top: 0; left: 0; background-color: rgba(0,0,0,0.5); z-index: 999; transition: all 0.3s; opacity: 0; display: none;}
-/* html,body{height: 100vh; overflow: hidden;} */ /* 모달창에서 스크롤안됨 but 밑에 있다가도 다시 올라옴 */
-.modal-wrapper {width: 400px; height: 100vh; padding: 0 2em; background-color: #fff; position: absolute; top: 0; right: 0; transform: translateX(100%); transition: all 0.3s;}/* transform: 옆으로 밀어놓음 */
-.modal-wrapper .close-wrap {padding: 1em 0; text-align: right;}
-.modal-wrapper .close-wrap .bt-close {background-color: transparent; border: none; outline-style: none;}
-
-.modal-container.active {opacity: 1;}
-.modal-wrapper.active {transform: translateX(0);}
 
 
 /***************** 반응형 *****************/
