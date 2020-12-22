@@ -97,6 +97,9 @@ function naviShowHide() {
 }
 
 /********* 이벤트선언 **********/
+mainBanner();
+$(window).scroll(onScroll).resize(onResize).trigger("resize"); //휠은 휠로만 생김
+
 $('.top-wrapper .icon-down').click(onLangChg); // 언어선택
 $('.top-wrapper .bt-down').click(onLangSel); // 언어선택
 $.get('../json/navi-new.json', onNaviNew); // new releases 생성
@@ -112,10 +115,36 @@ $(".navi-wrapper .navi").mouseenter(onNaviEnter);
 //mouseenter는 pc에서 hover, 모바일에서는 touch
 $(".navi-wrapper .navi").mouseleave(onNaviLeave);
 
-$(window).scroll(onScroll).resize(onResize).trigger("resize"); //휠은 휠로만 생김
-mainBanner();
+$(".modal-trigger").click(onModalShow);
+$(".modal-container").click(onModalHide);
+$('.modal-wrapper').click(onModalWrapperClick);
+$('.modal-wrapper').find(".bt-close").click(onModalHide);
+
 
 /********* 이벤트콜백 **********/
+function onModalWrapperClick(e) {
+	e.stopPropagation();
+}
+
+function onModalShow(e) {
+	e.preventDefault(); //디폴트액션, 기본이벤트(a태그로 #가는 것) 막음
+	$(".modal-container").css({"display":"block"});
+	$(".modal-container").css("opacity");
+	//displaly:none돼서 속성 다 무시되고 opacity 초기값 없이 active클래스만 먹음, 따라서 다시 opacity값 불러줘야
+	$(".modal-container").addClass('active');
+	$("body").addClass("hide"); //스크롤 안먹음
+	$($(this).data('modal')).addClass("active");
+}
+
+function onModalHide() {
+	$(".modal-container").removeClass('active');
+	$('.modal-wrapper').removeClass("active");
+	setTimeout(function(){
+		$(".modal-container").css({"display":"none"});
+		$("body").removeClass("hide");
+	}, 300); //0.3초 뒤에 적용됨
+}
+
 function onResize(e) {
 	topHeight = $('.top-wrapper').outerHeight();
 	logoHeight = $('.logo-wrapper').outerHeight();
