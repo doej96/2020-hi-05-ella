@@ -97,11 +97,42 @@ function naviShowHide() {
 }
 
 function createMoNavi() {
-	var i, html='';
+		var html = '';
+	  html += '<div class="top-wrap">';
+		html += '<div class="close-wrap3 bt-close">';
+		html += '<i class="fa fa-times"></i>';
+		html += '</div>';
+		html += '<div class="tel-wrap">Available 24/7 at <strong>(018) 900-6690</strong></div>';
+		html += '</div>';
+		html += '<ul>';
+		var i;
 	for(var i in navi) {
-		html += '<li onclick="showDepth2('+i+');">'+navi[i].name+'</li>'
+		html += '<li onclick="createDepth2('+i+');">';
+		html += '<a href="#">'+navi[i].name+'</a>';
+		html += '<i class="fa fa-angle-right"></i>';
+		html += '</li>';
 	}
+		html += '</ul>';
 	$(".modal-navi").find(".depth1").html(html);
+}
+
+function createDepth2(idx) {
+	html = '<div class="top-wrap">';
+	html += '<div class="close-wrap3 bt-prev">';
+	html += '<i class="fa fa-angle-left"></i>';
+	html += '</div>';
+	html += '<h4 class="title">'+navi[idx].name+'</h4>';
+	html += '</div>';
+	html += '<ul>';
+	for (var i=0; i<navi[idx].depth2.length; i++) {
+		html += '<li onclick="createDepth3('+idx+','+i+');">';
+		html += '<a href="#">'+navi[idx].depth2[i].name+'</a>';
+		html += '<i class="fa fa-angle-right"></i>';
+		html += '</li>';
+	}
+	html += '</ul>';
+	$(".modal-navi .depth2").html(html);
+	$(".modal-navi .depth2").addClass('active');
 }
 
 /********* 이벤트선언 **********/
