@@ -1,5 +1,5 @@
 /********* 전역선언 **********/
-var scTop, topHeight, logoHeight, winWidth;
+var scTop, topHeight, logoHeight, winWidth, navi = [];
 
 /********* 사용자함수 **********/
 
@@ -96,6 +96,14 @@ function naviShowHide() {
 	}
 }
 
+function createMoNavi() {
+	var i, html='';
+	for(var i in navi) {
+		html += '<li onclick="showDepth2('+i+');">'+navi[i].name+'</li>'
+	}
+	$(".modal-navi").find(".depth1").html(html);
+}
+
 /********* 이벤트선언 **********/
 mainBanner();
 $(window).scroll(onScroll).resize(onResize).trigger("resize"); //휠은 휠로만 생김
@@ -134,6 +142,8 @@ function onModalShow(e) {
 	$(".modal-container").addClass('active');
 	$("body").addClass("hide"); //스크롤 안먹음
 	$($(this).data('modal')).addClass("active");
+
+	if($(this).data("modal") === '.modal-navi') createMoNavi();
 }
 
 function onModalHide() {
@@ -183,14 +193,17 @@ function onDepth2Leave() {
 
 
 function onNaviMen(r) {
+	navi[2]=r;
 	createSubNavi('.navi.navi-men',r);
 }
 
 function onNaviWomen(r) {
+	navi[3]=r;
 	createSubNavi(".navi.navi-women",r);
 }
 
 function onNaviKids(r) {
+	navi[4]=r;
 	createSubNavi(".navi.navi-kids",r);
 }
 
@@ -203,6 +216,7 @@ function onNaviLeave() {
 }
 
 function onNaviNew(r) {
+	navi[0]=r;
 	$(".navi.navi-new").prepend(createNavi(r));
 	var html = createSub(r);
 	html += '<div class="sub-banner">';
@@ -212,6 +226,7 @@ function onNaviNew(r) {
 }
 
 function onNaviBest(r) {
+	navi[1]=r;
 	$(".navi.navi-best").prepend(createNavi(r));
 	$(".navi.navi-best").find(".sub-navi-wrapper").append(createSub(r));
 
@@ -225,6 +240,7 @@ function onNaviBest(r) {
 }
 
 function onNaviSales(r) {
+	navi[5]=r;
 	$(".navi.navi-sales").prepend(createNavi(r));
 	for(var i=0; i<r.brands.length; i++) {
 	html = '<div class="brand-wrap">';
