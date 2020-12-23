@@ -126,10 +126,17 @@ function createDepth2(idx) {
 	html += '</div>';
 	html += '<ul>';
 	for (var i=0; i<navi[idx].depth2.length; i++) {
+		if(navi[idx].depth2[i].depth3 && navi[idx].depth2[i].depth3.length > 0) {
 		html += '<li onclick="createDepth3('+idx+','+i+');">';
 		html += '<a href="#">'+navi[idx].depth2[i].name+'</a>';
 		html += '<i class="fa fa-angle-right"></i>';
 		html += '</li>';
+		}
+		else{
+		html += '<li>';
+		html += '<a href="#">'+navi[idx].depth2[i].name+'</a>';
+		html += '</li>';
+		}
 	}
 	html += '</ul>';
 	$(".modal-navi .depth2").html(html);
@@ -229,6 +236,7 @@ function onResize(e) {
 	winWidth = $(window).width();
 	/* naviTop = $(".navi-wrapper").offset().top; */
 	//naviTop값 스크롤할 때마다 찾는 게 아니라 resize(브라우저 크기 바뀔때마다)찾음
+	if(winWidth <1200) $(".top-wrapper .trans-wrapper").hide();
 }
 
 function onScroll(e) {

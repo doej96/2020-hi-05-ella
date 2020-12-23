@@ -494,7 +494,8 @@ h2.title-main {font-family: 'DM Serif Display', serif; font-size: 2.5em; letter-
 .modal-wrapper.type-lt.active {transform: translateX(0);}
 .modal-wrapper.type-ct.active {display: block;}
 
-.modal-wrapper .depth2 .title {margin: auto; font-weight: bold;}
+.modal-wrapper .depth2 .title,
+.modal-wrapper .depth3 .title {margin: auto; font-weight: bold;}
 .modal-wrapper label {display: block; margin: 1.5em 0 1em 0;}
 .modal-wrapper .bt-blue,
 .modal-wrapper .bt-white
