@@ -114,6 +114,9 @@ function createMoNavi() {
 	}
 		html += '</ul>';
 	$(".modal-navi").find(".depth1").html(html);
+	$(".modal-navi").find(".depth1").append($(".trans-wrapper").clone().attr("style","")).find('.trans-bg').remove();
+	$(".modal-navi").find(".depth1").find('.trans-wrapper .bt-down').click(onLangSel);
+
 	$(".modal-navi .depth2, .modal-navi .depth3").removeClass('active'); //depth2,depth3에서 닫아도 열 때 depth1 나오게 함
 }
 
@@ -168,17 +171,24 @@ function closeDepth(n) { //
 
 /********* 이벤트선언 **********/
 mainBanner();
-$(window).scroll(onScroll).resize(onResize).trigger("resize"); //휠은 휠로만 생김
+
+$(window).scroll(onScroll); //scroll spy
+$(window).resize(onResize).trigger("resize"); //휠은 휠로만 생김
 
 $('.top-wrapper .icon-down').click(onLangChg); // 언어선택
 $('.top-wrapper .bt-down').click(onLangSel); // 언어선택
+$('.trans-wrapper .trans-bg').click(onTransBg); // trans창 닫기
+$('.trans-wrapper .lang').click(onLangClick); // flag-now, lang-now 선택
+
 $.get('../json/navi-new.json', onNaviNew); // new releases 생성
 $.get('../json/navi-best.json', onNaviBest); // best sellers 생성
 $.get('../json/navi-sales.json', onNaviSales); // sales 생성
-$.get('../json/new-products.json', onNewProducts); // new releases 상품 가져오기
 $.get('../json/navi-men.json', onNaviMen); // Men 상품 가져오기
 $.get('../json/navi-women.json', onNaviWomen); // Women 상품 가져오기
 $.get('../json/navi-kids.json', onNaviKids); // Kids 상품 가져오기
+
+$.get('../json/new-products.json', onNewProducts); // new releases 상품 가져오기
+
 $.get('../json/looking.json', onLooking); //Looking 생성
 
 $(".navi-wrapper .navi").mouseenter(onNaviEnter);
@@ -203,6 +213,11 @@ function onLooking(r){
 		html += '</li>';
 	}
 	$(".looking-wrapper .spot-wrapper").html(html);
+}
+
+function onTransBg(e) {
+	e.stopPropagation();
+	onLangChg();
 }
 
 function onModalWrapperClick(e) {
@@ -380,5 +395,15 @@ function onLangChg() {
 function onLangSel() {
 	$(".trans-wrapper .lang-sel").stop().slideUp(200);
 	if($(this).next().css("display") === 'none') $(this).next().stop().slideDown(200);
+}
+function onLangClick() {
+	var $container = $(this).parent().parent().parent();
+	var lang = $(this).text();
+	var bg = $(this).prev().css("background-image");
+	$container.find('lang').removeClass('active');
+	$(this).addClass('active');
+	$container.find('.flag-now').css("background-image", bg);
+	$container.find('.lang-now').text(lang);
+	$(this).parent().parent().stop().slideUp(200);
 }
 
