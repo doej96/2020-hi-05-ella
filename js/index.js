@@ -148,6 +148,7 @@ $.get('../json/new-products.json', onNewProducts); // new releases 상품 가져
 $.get('../json/navi-men.json', onNaviMen); // Men 상품 가져오기
 $.get('../json/navi-women.json', onNaviWomen); // Women 상품 가져오기
 $.get('../json/navi-kids.json', onNaviKids); // Kids 상품 가져오기
+$.get('../json/looking.json', onLooking); //Looking 생성
 
 $(".navi-wrapper .navi").mouseenter(onNaviEnter);
 //mobile은 mouseover가 없기 때문에 가급적이면 주지 말기
@@ -161,6 +162,18 @@ $('.modal-wrapper').find(".bt-close").click(onModalHide);
 
 
 /********* 이벤트콜백 **********/
+function onLooking(r){
+	for(var i=0, html=''; i<r.length; i++) {
+		html += '<li class="spot">';
+		html += '<a href="'+r[i].link+'">';
+		html += '<img src="'+r[i].src+'" class="w-100 animate__animated">';
+		html += '<h3 class="title hover-line">'+r[i].title+'</h3>';
+		html += '</a>';
+		html += '</li>';
+	}
+	$(".looking-wrapper .spot-wrapper").html(html);
+}
+
 function onModalWrapperClick(e) {
 	e.stopPropagation();
 }
