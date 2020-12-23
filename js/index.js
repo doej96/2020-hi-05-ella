@@ -118,7 +118,7 @@ function createMoNavi() {
 
 function createDepth2(idx) {
 	html = '<div class="top-wrap">';
-	html += '<div class="close-wrap3 bt-prev">';
+	html += '<div class="close-wrap3 bt-prev" onclick="closeDepth(2)">';
 	html += '<i class="fa fa-angle-left"></i>';
 	html += '</div>';
 	html += '<h4 class="title">'+navi[idx].name+'</h4>';
@@ -133,6 +133,10 @@ function createDepth2(idx) {
 	html += '</ul>';
 	$(".modal-navi .depth2").html(html);
 	$(".modal-navi .depth2").addClass('active');
+}
+
+function closeDepth(n) {
+	$(".modal-navi .depth"+n).removeClass('active');
 }
 
 /********* 이벤트선언 **********/

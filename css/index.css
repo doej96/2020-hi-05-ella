@@ -470,6 +470,8 @@ h2.title-main {font-family: 'DM Serif Display', serif; font-size: 2.5em; letter-
 .looking-wrapper .spot-wrapper > .spot .title {counter-reset: #293355; display: inline-block;}
 .looking-wrapper .spot-wrapper > .spot:hover img {animation-name: headShake;}
 
+/***************** .best-wrapper *****************/
+.best-wrapper {padding: 4em 0;}
 
 /***************** .modal-container *****************/
 .modal-container {width: 100%; height: 100vh; position: fixed; top: 0; left: 0; background-color: rgba(0,0,0,0.5); z-index: 999; transition: all 0.3s; opacity: 0; display: none;}
@@ -492,7 +494,7 @@ h2.title-main {font-family: 'DM Serif Display', serif; font-size: 2.5em; letter-
 .modal-wrapper.type-lt.active {transform: translateX(0);}
 .modal-wrapper.type-ct.active {display: block;}
 
-.modal-wrapper .title {font-family: 'DM Serif Display', serif; font-size: 2.5em; letter-spacing: 0.05em; margin-bottom: 1em;}
+.modal-wrapper .depth2 .title {margin: auto; font-weight: bold;}
 .modal-wrapper label {display: block; margin: 1.5em 0 1em 0;}
 .modal-wrapper .bt-blue,
 .modal-wrapper .bt-white
