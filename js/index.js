@@ -99,7 +99,7 @@ function naviShowHide() {
 function createMoNavi() {
 		var html = '';
 	  html += '<div class="top-wrap">';
-		html += '<div class="close-wrap3 bt-close">';
+		html += '<div class="close-wrap3 bt-close" onclick="onModalHide()">';
 		html += '<i class="fa fa-times"></i>';
 		html += '</div>';
 		html += '<div class="tel-wrap">Available 24/7 at <strong>(018) 900-6690</strong></div>';
@@ -114,6 +114,7 @@ function createMoNavi() {
 	}
 		html += '</ul>';
 	$(".modal-navi").find(".depth1").html(html);
+	$(".modal-navi .depth2, .modal-navi .depth3").removeClass('active');
 }
 
 function createDepth2(idx) {
@@ -135,7 +136,7 @@ function createDepth2(idx) {
 	$(".modal-navi .depth2").addClass('active');
 }
 
-function closeDepth(n) {
+function closeDepth(n) { //
 	$(".modal-navi .depth"+n).removeClass('active');
 }
 
