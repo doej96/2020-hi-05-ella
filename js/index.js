@@ -114,7 +114,7 @@ function createMoNavi() {
 	}
 		html += '</ul>';
 	$(".modal-navi").find(".depth1").html(html);
-	$(".modal-navi .depth2, .modal-navi .depth3").removeClass('active');
+	$(".modal-navi .depth2, .modal-navi .depth3").removeClass('active'); //depth2,depth3에서 닫아도 열 때 depth1 나오게 함
 }
 
 function createDepth2(idx) {
@@ -135,6 +135,25 @@ function createDepth2(idx) {
 	$(".modal-navi .depth2").html(html);
 	$(".modal-navi .depth2").addClass('active');
 }
+
+function createDepth3(idx, idx2) {
+	html = '<div class="top-wrap">';
+	html += '<div class="close-wrap3 bt-prev" onclick="closeDepth(3)">';
+	html += '<i class="fa fa-angle-left"></i>';
+	html += '</div>';
+	html += '<h4 class="title">'+navi[idx].depth2[idx2].name+'</h4>';
+	html += '</div>';
+	html += '<ul>';
+	for (var i=0; i<navi[idx].depth2[idx2].depth3.length; i++) {
+		html += '<li>';
+		html += '<a href="#">'+navi[idx].depth2[idx2].depth3[i].name+'</a>';
+		html += '</li>';
+	}
+	html += '</ul>';
+	$(".modal-navi .depth3").html(html);
+	$(".modal-navi .depth3").addClass('active');
+}
+
 
 function closeDepth(n) { //
 	$(".modal-navi .depth"+n).removeClass('active');
