@@ -6,13 +6,12 @@ function renderPrd() {
 	$(".prd").each(function(i){
 		var discount = $(this).data('discount');
 		var icon = $(this).data('icon');
-		var html='';
 		if(discount) {
-			html+= '<div class="discount>'+discount+'</div>';
+			$(this).find('.icon-wrap').append('<div class="discount>'+discount+'</div>');
 		}
 		if(icon && icon.length > 0) { /* 앞의 조건을 먼저 검사 */
-			for(var i in icon) {
-				html += '<div class="icon" style="background-color: '+icon[i].bg+';">'+icon[i].title+'</div>'
+			for(var i=0; i<icon.length; i++) {
+				$(this).find('.icon-wrap').append('<div class="icon" style="background-color: '+icon[i].bg+';">'+icon[i].title+'</div>')
 			}
 		}
 	})
