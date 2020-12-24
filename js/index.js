@@ -4,9 +4,9 @@ var scTop, topHeight, logoHeight, winWidth, navi = [];
 /********* 사용자함수 **********/
 function renderStar() {
 	$(".star").each(function(i){
-		var score =Number($(this).find('.star').data('score'));
-	if(score > 0) $el.find(".star > i").addClass("active");
-	$(this).css("left", score * 20 + "%");
+	var score =Number($(this).data('score'));
+	if(score > 0) $(this).find("i").addClass("active");
+	$(this).find(".mask").css("left", score * 20 + "%");
 	})
 }
 
@@ -381,7 +381,7 @@ function onNewProducts(r) {
 		html += '</div>';
 		html += '</div>';
 		$slide = $(html).appendTo(".navi-new .swiper-wrapper");
-		renderStar($slide);
+		renderStar();
 	}
 	var swiper = new Swiper('#newSlide .swiper-container', {
 			slidesPerView: 4,
