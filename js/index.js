@@ -2,6 +2,13 @@
 var scTop, topHeight, logoHeight, winWidth, navi = [];
 
 /********* 사용자함수 **********/
+function renderPrd() {
+	$(".prd").each(function(i){
+		var discount = $(this).data('discount');
+		var icon = $(this).data('icon');
+	})
+}
+
 function renderStar() {
 	$(".star").each(function(i){
 	var score =Number($(this).data('score'));
@@ -208,7 +215,8 @@ $(".modal-container").click(onModalHide);
 $('.modal-wrapper').click(onModalWrapperClick);
 $('.modal-wrapper').find(".bt-close").click(onModalHide);
 
-renderStar($(".best-wrapper"));
+renderStar();
+renderPrd();
 
 
 /********* 이벤트콜백 **********/
