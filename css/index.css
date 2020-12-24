@@ -72,9 +72,15 @@ h2.title-main {font-family: 'DM Serif Display', serif; font-size: 2.5em; letter-
 .prd .title-wrap .title {font-weight: bold;}
 
 .prd .choice-wrap {display: flex; margin: 0.5em 0;}
-.prd .choice-wrap .choice {width: 24px; height: 24px; border-radius: 50%; overflow: hidden; margin-right: 0.5em;}
-.prd .choice-wrap .choice.active {border: 3px solid #333;}
+.prd .choice-wrap .choice {position: relative; margin-right: 0.5em; cursor: pointer;}
+.prd .choice-wrap .choice > :first-child {width: 32px; height: 32px; border-radius: 50%; overflow: hidden; border: 2px solid #fff; transition: all 0.5s;}
+.prd .choice-wrap .choice.active > :first-child {border: 2px solid #333}
 
+.prd .choice-wrap .choice .popper {position: absolute; left: 50%;transform: translateX(-50%); background-color: #293356; color:#f9f9f9;font-size: 0.875em; font-weight: bold; z-index: 3; padding: 0.5em; top: -3em; opacity: 0; transition: all 0.3s; visibility: hidden; border-radius: 10%;}
+.prd .choice-wrap .choice .popper::after {display: block; content: "";width: 8px; height: 8px; transform: rotate(45deg) translateX(-50%);background-color: #293356; position: absolute; left: 50%; bottom: -6px;}
+
+.prd .choice-wrap .choice:hover .popper {opacity: 1; visibility:visible;}  /* 영역 문제로 transition 지저분할 때? */
+	
 .prd .content-wrap {font-weight: bold; margin: 1em 0;}
 .prd .price-wrap {font-weight: bold; margin: 1em 0; color: #ba7a2d;}
 .prd .star-wrap {margin: 1em 0; display: flex; justify-content: space-between; align-items: center;}
@@ -88,6 +94,7 @@ h2.title-main {font-family: 'DM Serif Display', serif; font-size: 2.5em; letter-
 .prd .quick-wrap i {display: inline-block;}
 .prd .quick-wrap span {display: inline-block; width: 0; overflow: hidden; transition: all 0.3s; white-space: nowrap;}
 .prd .quick-wrap:hover span{width: 100%;}
+
 
 /***************** header-wrapper *****************/
 .header-wrapper {
