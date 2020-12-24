@@ -17,6 +17,11 @@ function renderPrd() {
 	})
 }
 
+function chgImg(el, src) {
+	$(el).parents('.prd').find('.img-front').attr({"src":src});
+	$(el).parent().addClass('active').siblings().removeClass('active');
+}
+
 function renderStar() {
 	$(".star").each(function(i){
 	var score =Number($(this).data('score'));
