@@ -2,6 +2,13 @@
 var scTop, topHeight, logoHeight, winWidth, navi = [];
 
 /********* 사용자함수 **********/
+function renderStar() {
+	$(".star").each(function(i){
+		var score =Number($(this).find('.star').data('score'));
+	if(score > 0) $el.find(".star > i").addClass("active");
+	$(this).css("left", score * 20 + "%");
+	})
+}
 
 function mainBanner() {
 	var swiper = new Swiper('.main-wrapper.swiper-container', {
@@ -201,6 +208,8 @@ $(".modal-container").click(onModalHide);
 $('.modal-wrapper').click(onModalWrapperClick);
 $('.modal-wrapper').find(".bt-close").click(onModalHide);
 
+renderStar($(".best-wrapper"));
+
 
 /********* 이벤트콜백 **********/
 function onLooking(r){
@@ -359,7 +368,7 @@ function onNewProducts(r) {
 		html += '<div class="content-wrap">';
 		html += '<h4 class="title">'+r[i].title+'</h4>';
 		html += '<p class="summary">'+r[i].summary+'</p>';
-		html += '<div class="star">';
+		html += '<div class="star" data-score="'+r[i].star+'">';
 		for(var j=0; j<5; j++) html += '<i class="fa fa-star"></i>';
 		if(Number(r[i].star) > 0) html += '<div class="mask"></div>';
 		html += '</div>';
@@ -372,8 +381,7 @@ function onNewProducts(r) {
 		html += '</div>';
 		html += '</div>';
 		$slide = $(html).appendTo(".navi-new .swiper-wrapper");
-		if(Number(r[i].star) > 0) $slide.find(".star > i").addClass("active");
-		$slide.find(".mask").css("left", r[i].star * 20 + "%");
+		renderStar($slide);
 	}
 	var swiper = new Swiper('#newSlide .swiper-container', {
 			slidesPerView: 4,
