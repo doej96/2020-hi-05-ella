@@ -69,6 +69,12 @@ h2.title-main {font-family: 'DM Serif Display', serif; font-size: 2.5em; letter-
 
 .prd {user-select: none; background-color: #fff; padding: 0 1em; position: relative;}
 
+.prd .img-wrap {position: relative;}
+.prd .img-wrap > .img-front {position: absolute; top: 0; left: 0; transition: all .5s; height: 100%;}
+.prd .img-wrap .bt-white {width: 70%; padding: 1.5em 0; left: 15%; bottom: 10%; position: absolute; box-shadow: none; opacity: 0; transition: all 0,3;}
+.prd:hover .img-wrap .bt-white {opacity: 1;} /* .img-wrap 써서 앞보다 css점수 높여줌 */
+
+.prd .img-wrap:hover .img-front {opacity: 0;}
 .prd:hover .quick-wrap {opacity: .6;}
 
 .prd .title-wrap {display: flex; justify-content: space-between; padding: 1em 0;}
@@ -517,12 +523,6 @@ h2.title-main {font-family: 'DM Serif Display', serif; font-size: 2.5em; letter-
 .prd-wrapper {margin-top: 3em;}
 .prd-wrapper .prd-wrap {display: flex;}
 .prd-wrapper .prd-wrap .prd {width: 25%; flex-shrink: 0; flex-grow: 0;} /* swiper는 flex를 자기가 정함 */
-
-.prd-wrapper .img-wrap {position: relative; cursor: pointer;}
-.prd .img-wrap .bt-white {width: 70%; padding: 1.5em 0; left: 15%; bottom: 10%; position: absolute; box-shadow: none; opacity: 0; transition: all 0,3;}
-.prd:hover .img-wrap .bt-white {opacity: 1;} /* .img-wrap 써서 앞보다 css점수 높여줌 */
-.prd-wrapper .img-wrap:hover .img-front {opacity: 0;}
-.prd-wrapper .img-wrap .img-front {position: absolute; top: 0; left: 0; transition: all .5s;}
 
 
 /***************** .brand-wrapper *****************/
