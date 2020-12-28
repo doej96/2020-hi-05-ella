@@ -218,6 +218,8 @@ $.get('../json/new-products.json', onNewProducts); // new releases 상품 가져
 
 $.get('../json/looking.json', onLooking); //Looking 생성
 
+$.get('../json/prd.json', onPrd); // Prd배너 생성
+
 $(".navi-wrapper .navi").mouseenter(onNaviEnter);
 //mobile은 mouseover가 없기 때문에 가급적이면 주지 말기
 //mouseenter는 pc에서 hover, 모바일에서는 touch
@@ -233,6 +235,63 @@ renderPrd();
 
 
 /********* 이벤트콜백 **********/
+
+//append를 for문 안에 넣을 때는 겹치지않도록 html += ''이 아니라 (for문 안에서)html=''으로 시작
+//append를 바깥에다 넣을 때는 for문 다 돌고 붙이는 것이므로 html+=''으로 시작
+function onPrd(r) {
+	for(var i=0, html=''; i<r.length; i++) {
+		html = '<li class="prd" ';
+		 if(r[i].discount) html+= 'data-discount="'+r[i].discount+'"';
+		 // html+= 'data-discount="'+(r[i].discount || '')+'"';
+		 html+= 'data-icon=\'['
+		 if(r[i].icon && r[i].icon.length > 0) {
+			 for(var j=0; j<r[i].icon.length; j++) {
+			html += '{"title": "'+r[i].icon[j].title+'", "bg": "'+r[i].icon[j].bg+'"},';
+		 }
+		 html = html.slice(0, -1); //html에서 뒤에서 한자리 잘라내기
+	}
+		html += ']\'>';
+		html += '<div class="icon-wrap"></div>';
+		html += '<div class="quick-wrap">';
+		html += '<i class="fa fa-eye"></i>';
+		html += '<span>Quick View</span>';
+		html += '</div>';
+		html += '<div class="img-wrap">';
+		html += '<img src="'+r[i].imgFront[0].big+'" alt="사진" class="w-100 img-front">';
+		html += '<img src="../img/pic2.jpg" alt="사진" class="w-100">';
+		html += '<a href="#" class="bt-white">ADD CART</a>';
+		html += '</div>';
+		html += '<div class="title-wrap">';
+		html += '<div class="title">'+r[i].title+'</div>';
+		html += '<i class="bt-like far fa-heart" onclick="$(this).addClass(\'fa\').removeClass(\'far\');"></i>';
+		html += '</div>';
+		html += '<ul class="choice-wrap">';
+		for(var j=0; j<r[i].imgFront.length; j++) {
+			html += '<li class="choice '+(j == 0 ? 'active':'')+'">';
+			html += '<img src="'+r[i].imgFront[j].thumb+'" alt="thumb" class="w-100" onclick="chgImg(this, \''+r[i].imgFront[j].big+'\');">';
+			html += '</li>';
+		}
+		html += '</ul>';
+		html += '<div class="content-wrap">';
+		html += '<span class="content hover-line">'+r[i].content+'</span>';
+		html += '<span> - </span>';
+		html += '<span class="color hover-line">'+r[i].color+'</span>';
+		html += '</div>';
+		html += '<div class="price-wrap">'+r[i].price+'</div>';
+		html += '<div class="star-wrap">';
+		html += '<div class="star" data-score="'+r[i].star+'">';
+		for(var j=0; j<5; j++) html += '<i class="fa fa-star"></i>';
+		html += '<div class="mask"></div>';
+		html += '</div>';
+		html += '<a href="'+r[i].link+'" class="bt-more">MORE SIZES ABAILABLE</a>';
+		html += '</div>';
+		html += '</li>';
+		$(".prd-wrap").append(html);
+	}
+	renderStar();
+	renderPrd();
+}
+
 function onLooking(r){
 	for(var i=0, html=''; i<r.length; i++) {
 		html += '<li class="spot">';
