@@ -291,12 +291,23 @@ function onPrd(r) {
 	renderStar();
 	renderPrd();
 	var swiper = new Swiper('.prd-wrapper.swiper-container',{
-			slidesPerView: 4,
+			slidesPerView: 1,
 			loop: true,
 			navigation: {
 				nextEl: '.main-wrapper .bt-next',
 				prevEl: '.main-wrapper .bt-prev',
 			},
+			breakpoints: {
+        576: {
+          slidesPerView: 2
+        },
+        768: {
+          slidesPerView: 3
+        },
+        992: {
+          slidesPerView: 4
+        },
+      }
 	});
 
 }
