@@ -633,6 +633,7 @@ h2.title-main {font-family: 'DM Serif Display', serif; font-size: 2.5em; letter-
 	.featured-wrap {overflow: visible;}
 	.featured-wrap > img {max-height: auto; max-width: 100%;}
 	.featured-wrap .banner-wrap {width: 90%; left: 5%; bottom: -20%; transform: translateY(50%);}
+	.featured-wrap .prd {width: 92%; max-width: 320px; margin: auto; position: relative; margin-top: -10%;}
 }
 @media screen and (max-width: 575px){
 	.top-wrapper .top-wrap{
