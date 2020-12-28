@@ -6,17 +6,17 @@ function renderPrd() {
 	$(".prd").each(function(i){
 		var discount = $(this).data('discount');
 		var icon = $(this).data('icon');
-		//$(this).find('.icon-wrap').empty();
+		$(this).find('.icon-wrap').empty();
 		if(discount) {
 			$(this).find('.icon-wrap').append('<div class="discount>'+discount+'</div>');
 		}
 		if(icon && icon.length > 0) { /* 앞의 조건을 먼저 검사 */
-			for(var i=0; i<icon.length; i++) {
-				$(this).find('.icon-wrap').append('<div class="icon" style="background-color: '+icon[i].bg+';">'+icon[i].title+'</div>')
+			for(var i=0, html=''; i<icon.length; i++) {
+				html += '<div class="icon" style="background-color: '+icon[i].bg+';">'+icon[i].title+'</div>';
 			}
 			$(this).find('.icon-wrap').append(html);
 		}
-	})
+	});
 }
 
 function chgImg(el, src) {
@@ -322,8 +322,8 @@ function onPrd(r) {
 			slidesPerView: 1,
 			loop: true,
 			navigation: {
-				nextEl: '.main-wrapper .bt-next',
-				prevEl: '.main-wrapper .bt-prev',
+				nextEl: '.prd-wrapper .bt-next',
+				prevEl: '.prd-wrapper .bt-prev',
 			},
 			breakpoints: {
         576: {
