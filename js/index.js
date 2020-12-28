@@ -230,7 +230,7 @@ function createPrd(r, el) {
 				html += '			<div>';
 				html += '				<img src="'+r[i].imgFront[j].thumb+'" alt="thumb" class="w-100" onclick="chgImg(this, \''+r[i].imgFront[j].big+'\');">';
 				html += '			</div>';
-				html += '			<div class="popper">White</div>';
+				html += '			<div class="popper">'+r[i].imgFront[j].color+'</div>';
 				html += '		</li>';
 			}
 		html += '	</ul>';
