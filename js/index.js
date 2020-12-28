@@ -8,7 +8,7 @@ function renderPrd() {
 		var icon = $(this).data('icon');
 		$(this).find('.icon-wrap').empty();
 		if(discount) {
-			$(this).find('.icon-wrap').append('<div class="discount>'+discount+'</div>');
+			$(this).find('.icon-wrap').append('<div class="discount">'+discount+'</div>');
 		}
 		if(icon && icon.length > 0) { /* 앞의 조건을 먼저 검사 */
 			for(var i=0, html=''; i<icon.length; i++) {
