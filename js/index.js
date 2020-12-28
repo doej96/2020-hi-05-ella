@@ -242,7 +242,7 @@ function createPrd(r, el) {
 		html += '<div class="price-wrap">'+r[i].price+'</div>';
 		html += '<div class="star-wrap">';
 		html += '	<div class="star" data-score="'+r[i].star+'">';
-			for(varj=0; j<5; j++) html += '<i class="fa fa-star"></i>';
+			for(var j=0; j<5; j++) html += '<i class="fa fa-star"></i>';
 		html += '		<div class="mask"></div>';
 		html += '	</div>';
 		html += '	<a href="'+r[i].link+'" class="bt-more">MORE SIZES ABAILABLE</a>';
