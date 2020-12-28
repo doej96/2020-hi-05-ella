@@ -240,9 +240,9 @@ renderPrd();
 //append를 바깥에다 넣을 때는 for문 다 돌고 붙이는 것이므로 html+=''으로 시작
 function onPrd(r) {
 	for(var i=0, html=''; i<r.length; i++) {
-		html = '<li class="prd" ';
-		 if(r[i].discount) html+= 'data-discount="'+r[i].discount+'"';
-		 // html+= 'data-discount="'+(r[i].discount || '')+'"';
+		html = '<li class="prd swiper-slide" ';
+		 // if(r[i].discount) html+= 'data-discount="'+r[i].discount+'"';
+		 html+= 'data-discount="'+(r[i].discount || '')+'" ';
 		 html+= 'data-icon=\'['
 		 if(r[i].icon && r[i].icon.length > 0) {
 			 for(var j=0; j<r[i].icon.length; j++) {
@@ -290,6 +290,15 @@ function onPrd(r) {
 	}
 	renderStar();
 	renderPrd();
+	var swiper = new Swiper('.prd-wrapper.swiper-container',{
+			slidesPerView: 4,
+			loop: true,
+			navigation: {
+				nextEl: '.main-wrapper .bt-next',
+				prevEl: '.main-wrapper .bt-prev',
+			},
+	});
+
 }
 
 function onLooking(r){
