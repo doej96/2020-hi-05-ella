@@ -396,7 +396,10 @@ function onResize(e) {
 	/* naviTop = $(".navi-wrapper").offset().top; */
 	//naviTop값 스크롤할 때마다 찾는 게 아니라 resize(브라우저 크기 바뀔때마다)찾음
 	if(winWidth <1200) $(".top-wrapper .trans-wrapper").hide();
-	if(winWidth > 767) $('.footer-wrap > div > ul').attr("style", "");
+	if(winWidth > 767) {
+		$('.footer-wrap > div > ul').attr("style", "");
+		$('.footer-wrap .bt-show').removeClass('active');
+	}
 }
 
 function onScroll(e) {
