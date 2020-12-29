@@ -9,7 +9,6 @@ html,body{
 	font-family: 'Noto Sans', sans-serif;
 	font-size: 14px;
 	line-height: 0.95;
-	height: 10000px;
 }
 body.hide {
 	height: 100vh;
@@ -590,9 +589,22 @@ h2.title-main {font-family: 'DM Serif Display', serif; font-size: 2.5em; letter-
 .new-wrapper p.content {line-height: 1.75; margin-bottom: 3em;}
 .new-wrapper a.bt-blue {width: 70%; margin: auto;}
 
+
 /***************** .footer-wrapper *****************/
 .footer-wrapper {margin: 5em 0;}
-.footer-wrapper 
+.footer-wrapper .footer-wrap {display: flex;}
+.footer-wrapper .footer-wrap > * {flex: 25% 0 0; padding-right: 1%;}
+.footer-wrapper .navi.title {margin: 4em 0 2.5em 0; font-weight: bold; font-size: 1.125em;}
+.footer-wrapper .navi {margin: 1.25em 0; font-size: 0.875em;}
+
+.footer-wrapper .sns-wrap {display: flex; font-size: 1.25em;}
+.footer-wrapper .sns-wrap > .sns {margin-right: 1em;}
+
+.footer-wrapper .pay-wrap {display: flex; flex-wrap: wrap;}
+.footer-wrapper .pay {flex: 20% 0 0; padding: 0 5% 5% 0;}
+
+.footer-wrapper .copy-wrap {text-align: center; margin: 4em 0;}
+.footer-wrapper .copyright {margin: 1em 0;}
 
 
 /***************** .modal-container *****************/
