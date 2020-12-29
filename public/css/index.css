@@ -719,6 +719,8 @@ h2.title-main {font-family: 'DM Serif Display', serif; font-size: 2.5em; letter-
 	.featured-wrap .banner-wrap {width: 90%; position: static; margin: auto; transform: translateY(-40%);}
 	.featured-wrap .prd {width: 92%; max-width: 320px; margin: auto; position: relative; margin-top: -10%;}
 	.etc-wrapper > div {flex: 100% 0 0; padding: 10%;}
+	.new-wrap > div {flex: 100% 0 0; font-size: 0.875em;}
+	.new-wrapper > .new-wrap:last-child > .img-wrap {order: -1;}
 	.footer-wrapper .footer-wrap {max-width: 500px;}
 	.footer-wrapper .footer-wrap > div {flex: 100% 0 0; padding-right: 2%; padding-left: 2%; border-bottom: 1px solid #eaeaea;}
 	.footer-wrapper .footer-wrap > div:not(:last-child) > ul {display: none;}
