@@ -582,7 +582,7 @@ h2.title-main {font-family: 'DM Serif Display', serif; font-size: 2.5em; letter-
 
 /************ new-wrapper *************/
 .new-wrapper {padding: 6em 0; border-bottom: 1px solid #eaeaea;}
-.new-wrapper > .new-wrap {display: flex; align-items: center;}
+.new-wrapper > .new-wrap {display: flex; flex-wrap: wrap; align-items: center;}
 .new-wrap > div {flex: 50% 0 0; margin: 1em 0;}
 .new-wrapper > .new-wrap:last-child > .img-wrap {order: 1;}
 .new-wrapper .img-wrap  {background-color: #000; overflow: hidden; position: relative;}
