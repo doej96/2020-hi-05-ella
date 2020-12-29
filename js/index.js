@@ -289,11 +289,16 @@ $(".modal-container").click(onModalHide);
 $('.modal-wrapper').click(onModalWrapperClick);
 $('.modal-wrapper').find(".bt-close").click(onModalHide);
 
-renderStar();
-renderPrd();
+$('.footer-wrapper .bt-show').click(onFooterClick);
+//renderStar();
+//renderPrd();
 
 
 /********* 이벤트콜백 **********/
+function onFooterClick() {
+	$(this).toggleClass('active');
+	$(this).parent().next().stop().slideToggle(300);
+}
 
 function onCollection(r) {
 	createPrd(r, '.collection-wrap .swiper-wrapper');
@@ -391,6 +396,7 @@ function onResize(e) {
 	/* naviTop = $(".navi-wrapper").offset().top; */
 	//naviTop값 스크롤할 때마다 찾는 게 아니라 resize(브라우저 크기 바뀔때마다)찾음
 	if(winWidth <1200) $(".top-wrapper .trans-wrapper").hide();
+	if(winWidth > 767) $('.footer-wrap > div > ul').attr("style", "");
 }
 
 function onScroll(e) {
