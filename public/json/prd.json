@@ -67,11 +67,11 @@
 		],
 		"llink": "#",
 		"quickLink": "#",
-		"imgBack": "../img/pic7.jpg",
+		"imgBack": "../img/pic8.jpg",
 		"imgFront": [
-			{"thumb": "../img/image (11).jpg", "big": "../img/pic8.jpg", "color": "gray"},
-			{"thumb": "../img/image (12).jpg", "big": "../img/pic3.jpg", "color": "white"},
-			{"thumb": "../img/image (13).jpg", "big": "../img/pic4.jpg", "color": "black"}
+			{"thumb": "../img/image (11).jpg", "big": "../img/pic3.jpg", "color": "gray"},
+			{"thumb": "../img/image (12).jpg", "big": "../img/pic4.jpg", "color": "white"},
+			{"thumb": "../img/image (13).jpg", "big": "../img/pic5.jpg", "color": "black"}
 		],
 		"title": "G-STAR",
 		"content": "Dinterdum Pretium De Condimentus",
